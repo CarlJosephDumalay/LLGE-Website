@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Modern Product Showcase</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+  :root {
+    --bg: #f6f5f2;
+    --text: #1e1e1e;
+    --accent: #2b2b2b;
+    --border: #dcdad6;
+    --white: #ffffff;
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    --gradient: linear-gradient(135deg, #fafafa, #eaeaea);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+ /* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 10%;
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* LOGO */
+.logo img {
+  height: 150px;
+  width: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(100%) brightness(0.7);
+}
+
+.logo img:hover {
+  transform: scale(1.08);
+  filter: grayscale(0%) brightness(1);
+}
+
+/* NAV BUTTONS */
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav button {
+  background: none;
+  border: 2px solid var(--accent);
+  border-radius: 30px;
+  padding: 0.6rem 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+nav button:hover {
+  background-color: var(--accent);
+  color: var(--white);
+  transform: scale(1.08);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ACTIVE BUTTON STYLE */
+nav a.active button {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+
+  /* CONTACT SECTION */
+  .contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    padding: 6rem 10%;
+    background: radial-gradient(circle at top left, #ffffff, #f2efea);
+    position: relative;
+  }
+
+  .contact-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    padding: 3rem;
+    flex: 1 1 400px;
+    max-width: 480px;
+    transition: all 0.4s ease;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .contact-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-card p {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .socials {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .socials a {
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: var(--accent);
+    transition: all 0.3s ease;
+  }
+
+  .socials a:hover {
+    color: #a67c52;
+    transform: scale(1.2);
+  }
+
+  .map-box {
+    flex: 1 1 450px;
+    height: 400px;
+    border-radius: 22px;
+    overflow: hidden;
+    background-color: var(--white);
+    border: 1.5px solid var(--border);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1.4rem;
+    background: var(--gradient);
+    animation: pulseGlow 6s infinite alternate;
+  }
+
+  @keyframes pulseGlow {
+    0% { box-shadow: 0 0 30px rgba(0,0,0,0.1), 0 0 10px rgba(255,255,255,0.3); }
+    100% { box-shadow: 0 0 50px rgba(0,0,0,0.25), 0 0 25px rgba(255,255,255,0.5); }
+  }
+
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    font-weight: 600;
+    background-color: var(--white);
+    letter-spacing: 0.5px;
+    margin-top: 3rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="LLGE Logo">
+  </div>
+  <nav>
+    <a href="main.html"><button>ABOUT</button></a>
+    <a href="contact.html" class="active"><button>CONTACT</button></a>
+  </nav>
+</header>
+
+
+<section class="contact-section">
+  <div class="map-box">
+    MAP / LOCATION
+  </div>
+
+  <div class="contact-card">
+    <h1>Contact Details</h1>
+    <p><strong>Address:</strong> 123 Creative Street, BFRC City</p>
+    <p><strong>Email:</strong> hello@yourbrand.com</p>
+    <p><strong>Phone:</strong> +63 900 123 4567</p>
+
+    <div class="socials">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Your Brand. All Rights Reserved.
+</footer>
+
+</body>
+</html>
