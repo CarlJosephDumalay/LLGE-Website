@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Product Showcase</title>
+<style>
+  :root {
+    --bg: #f6f5f2;
+    --text: #1e1e1e;
+    --accent: #2b2b2b;
+    --border: #dcdad6;
+    --white: #ffffff;
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    --gradient: linear-gradient(135deg, #fafafa, #eaeaea);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: "Poppins", "Helvetica Neue", sans-serif;
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 10%;
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* LOGO */
+.logo img {
+  height: 150px;
+  width: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(100%) brightness(0.7);
+}
+  
+.logo img:hover {
+  transform: scale(1.08);
+  filter: grayscale(0%) brightness(1);
+}
+
+/* NAV BUTTONS */
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav button {
+  background: none;
+  border: 2px solid var(--accent);
+  border-radius: 30px;
+  padding: 0.6rem 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+nav button:hover {
+  background-color: var(--accent);
+  color: var(--white);
+  transform: scale(1.08);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ACTIVE BUTTON STYLE */
+nav a.active button {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+
+/* HERO SECTION */
+.product-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 8%;
+  background: radial-gradient(circle at top left, #ffffff, #f2efea);
+  flex-wrap: wrap;
+  gap: 3rem;
+  min-height: 80vh;
+}
+
+/* DESCRIPTION BOX */
+.product-box {
+  flex: 1 1 45%;
+  padding: 3rem;
+  border-radius: 18px;
+  background: var(--white);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--accent);
+  line-height: 1.5;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.product-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+  /* SLIDER */
+.slider {
+  width: 500px;
+  height: 500px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  animation: pulseGlow 6s infinite alternate;
+  flex-shrink: 0;
+}
+
+.slider img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slider img.active {
+  opacity: 1;
+}
+
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.85);
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 26px;
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.slider button:hover {
+  background: rgba(255,255,255,1);
+  transform: translateY(-50%) scale(1.15);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* ANIMATION FOR SLIDER GLOW */
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 30px rgba(0,0,0,0.1), 0 0 10px rgba(255,255,255,0.3); }
+  100% { box-shadow: 0 0 50px rgba(0,0,0,0.25), 0 0 25px rgba(255,255,255,0.5); }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .product-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .product-box, .slider {
+    flex: none;
+    width: 90%;
+  }
+
+  .slider {
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+
+  /* BRANDS SECTION */
+  .brands {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
+    padding: 4rem 10%;
+    background: #faf8f6;
+  }
+
+  .brand-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .brand-box img {
+    width: 100%;
+    object-fit: contain;
+    transition: all 0.4s ease;
+    filter: grayscale(100%) brightness(0.9);
+  }
+
+  .brand-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+
+  .brand-box:hover img {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.05);
+  }
+
+  /* NEWS SECTION */
+  .news {
+    padding: 5rem 10%;
+    text-align: center;
+    background: var(--white);
+  }
+
+  .news h2 {
+    margin-bottom: 2.5rem;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+
+  .news-items {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .news-box {
+    width: 250px;
+    height: 250px;
+    background: var(--gradient);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .news-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    font-weight: 600;
+    background-color: var(--white);
+    letter-spacing: 0.5px;
+  }
+
+  header a.active button {
+  background-color: var(--accent);
+  color: var(--white);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="LLGE Logo">
+  </div>
+  <nav>
+    <a href="main.html" class="active"><button>ABOUT</button></a>
+    <a href="contact.html"><button>CONTACT</button></a>
+  </nav>
+</header>
+
+
+<section class="product-section">
+  <div class="product-box">
+    DESCRIPTION<br>ABOUT<br>LLGE
+  </div>
+
+  <div class="slider">
+    <img src="1.png" class="active" alt="Product 1">
+    <img src="2.png" alt="Product 2">
+    <img src="3.png" alt="Product 3">
+    <img src="4.png" alt="Product 4">
+    <img src="5.png" alt="Product 5">
+    <img src="6.png" alt="Product 6">
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+</section>
+
+<section class="brands">
+  <div class="brand-box"><img src="logo1.png" alt="Brand 1"></div>
+  <div class="brand-box"><img src="logo2.png" alt="Brand 2"></div>
+  <div class="brand-box"><img src="logo3.png" alt="Brand 3"></div>
+  <div class="brand-box"><img src="logo4.png" alt="Brand 4"></div>
+</section>
+
+<section class="news">
+  <h2>NEWS</h2>
+  <div class="news-items">
+    <div class="news-box"></div>
+    <div class="news-box"></div>
+    <div class="news-box"></div>
+  </div>
+</section>
+
+<footer>
+  CREDIT, CONTACTS
+</footer>
+
+<script>
+  const slides = document.querySelectorAll('.slider img');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+  let currentIndex = 0;
+  let interval;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetAutoSlide();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetAutoSlide();
+  });
+
+  function startAutoSlide() {
+    interval = setInterval(nextSlide, 10000);
+  }
+
+  function resetAutoSlide() {
+    clearInterval(interval);
+    startAutoSlide();
+  }
+
+  startAutoSlide();
+</script>
+
+</body>
+</html>
