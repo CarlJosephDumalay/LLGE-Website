@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modern Product Showcase</title>
+<title>LLGE | Local Leather Good Exposura</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #f6f5f2;
@@ -13,6 +14,8 @@
     --white: #ffffff;
     --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     --gradient: linear-gradient(135deg, #fafafa, #eaeaea);
+    --highlight: linear-gradient(90deg, #8b5e3c, #d4b093);
+    --leather: #8b5e3c;
   }
 
   * { box-sizing: border-box; }
@@ -25,176 +28,182 @@
     overflow-x: hidden;
   }
 
-/* HEADER */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 10%;
-  background-color: var(--white);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
+  /* HEADER */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10%;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
 
-/* LOGO */
-.logo img {
-  height: 150px;
-  width: auto;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: grayscale(100%) brightness(0.7);
-}
-  
-.logo img:hover {
-  transform: scale(1.08);
-  filter: grayscale(0%) brightness(1);
-}
+  .logo img {
+    height: 150px;
+    width: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%) brightness(0.7);
+  }
 
-/* NAV BUTTONS */
-nav {
-  display: flex;
-  gap: 2rem;
-}
+  .logo img:hover {
+    transform: scale(1.08);
+    filter: grayscale(0%) brightness(1);
+  }
 
-nav a {
-  text-decoration: none;
-}
+  nav {
+    display: flex;
+    gap: 2rem;
+  }
 
-nav button {
-  background: none;
-  border: 2px solid var(--accent);
-  border-radius: 30px;
-  padding: 0.6rem 1.6rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: var(--accent);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+  nav a { text-decoration: none; }
 
-nav button:hover {
-  background-color: var(--accent);
-  color: var(--white);
-  transform: scale(1.08);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
+  nav button {
+    background: none;
+    border: 2px solid var(--accent);
+    border-radius: 30px;
+    padding: 0.6rem 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
 
-/* ACTIVE BUTTON STYLE */
-nav a.active button {
-  background-color: var(--accent);
-  color: var(--white);
-}
+  nav button:hover {
+    background-color: var(--accent);
+    color: var(--white);
+    transform: scale(1.08);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
 
+  nav a.active button {
+    background-color: var(--accent);
+    color: var(--white);
+  }
 
-/* HERO SECTION */
-.product-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5rem 8%;
-  background: radial-gradient(circle at top left, #ffffff, #f2efea);
-  flex-wrap: wrap;
-  gap: 3rem;
-  min-height: 80vh;
-}
+  /* PRODUCT SECTION */
+  .product-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6rem 8%;
+    background: radial-gradient(circle at top left, #fdfcfb, #f6f2ed);
+    background-image: url('https://www.transparenttextures.com/patterns/leather.png');
+    background-blend-mode: multiply;
+    flex-wrap: wrap;
+    gap: 3rem;
+    min-height: 80vh;
+    animation: fadeInBg 10s ease-in-out infinite alternate;
+  }
 
-/* DESCRIPTION BOX */
-.product-box {
-  flex: 1 1 45%;
-  padding: 3rem;
-  border-radius: 18px;
-  background: var(--white);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  color: var(--accent);
-  line-height: 1.5;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
+  @keyframes fadeInBg {
+    0% { background-position: left top; }
+    100% { background-position: right bottom; }
+  }
 
-.product-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
+  /* DESCRIPTION BOX */
+  .product-box {
+    flex: 1 1 45%;
+    padding: 3rem;
+    border-radius: 18px;
+    background: var(--white);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeIn 1.5s ease forwards;
+  }
+
+  .product-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .product-box h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    color: #7c6a55;
+  }
+
+  .product-box h1 {
+    font-size: 2rem;
+    background: var(--highlight);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .product-box p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1rem;
+  }
 
   /* SLIDER */
-.slider {
-  width: 500px;
-  height: 500px;
-  border-radius: 18px;
-  overflow: hidden;
-  position: relative;
-  background-color: var(--white);
-  border: 2px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-  animation: pulseGlow 6s infinite alternate;
-  flex-shrink: 0;
-}
-
-.slider img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.slider img.active {
-  opacity: 1;
-}
-
-.slider button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.85);
-  border: none;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  font-size: 26px;
-  color: var(--accent);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.slider button:hover {
-  background: rgba(255,255,255,1);
-  transform: translateY(-50%) scale(1.15);
-}
-
-.prev { left: 20px; }
-.next { right: 20px; }
-
-/* ANIMATION FOR SLIDER GLOW */
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 30px rgba(0,0,0,0.1), 0 0 10px rgba(255,255,255,0.3); }
-  100% { box-shadow: 0 0 50px rgba(0,0,0,0.25), 0 0 25px rgba(255,255,255,0.5); }
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 992px) {
-  .product-section {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .product-box, .slider {
-    flex: none;
-    width: 90%;
-  }
-
   .slider {
-    height: auto;
-    aspect-ratio: 1 / 1;
+    width: 520px;
+    height: 520px;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--white);
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    animation: pulseGlow 6s infinite alternate;
+    flex-shrink: 0;
   }
-}
 
+  .slider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .slider img.active { opacity: 1; }
+
+  .slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.85);
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    font-size: 26px;
+    color: var(--accent);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .slider button:hover {
+    background: rgba(255,255,255,1);
+    transform: translateY(-50%) scale(1.15);
+  }
+
+  .prev { left: 20px; }
+  .next { right: 20px; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulseGlow {
+    0% { box-shadow: 0 0 30px rgba(0,0,0,0.1), 0 0 10px rgba(255,255,255,0.3); }
+    100% { box-shadow: 0 0 50px rgba(0,0,0,0.25), 0 0 25px rgba(255,255,255,0.5); }
+  }
 
   /* BRANDS SECTION */
   .brands {
@@ -235,40 +244,89 @@ nav a.active button {
     transform: scale(1.05);
   }
 
-  /* NEWS SECTION */
-  .news {
-    padding: 5rem 10%;
-    text-align: center;
-    background: var(--white);
-  }
+/* NEWS SECTION */
+.news {
+  padding: 6rem 10%;
+  background: var(--gradient);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 
-  .news h2 {
-    margin-bottom: 2.5rem;
-    font-size: 1.8rem;
-    letter-spacing: 1px;
-  }
+.news h2 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  background: var(--highlight);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
 
-  .news-items {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
+.news-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  justify-items: center;
+}
 
-  .news-box {
-    width: 250px;
-    height: 250px;
-    background: var(--gradient);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+.news-box {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  background: var(--white);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+}
 
-  .news-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-  }
+.news-box:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.news-box img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+.news-box:hover img {
+  filter: brightness(0.8);
+}
+
+.news-content {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.news-content h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.news-content p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+.news-content a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #7a5c3e;
+  transition: color 0.3s ease;
+}
+
+.news-content a:hover {
+  color: #b67b4b;
+}
+
 
   footer {
     text-align: center;
@@ -279,10 +337,22 @@ nav a.active button {
     letter-spacing: 0.5px;
   }
 
-  header a.active button {
-  background-color: var(--accent);
-  color: var(--white);
-}
+  @media (max-width: 992px) {
+    .product-section {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .product-box, .slider {
+      flex: none;
+      width: 90%;
+    }
+
+    .slider {
+      height: auto;
+      aspect-ratio: 1 / 1;
+    }
+  }
 </style>
 </head>
 <body>
@@ -297,10 +367,13 @@ nav a.active button {
   </nav>
 </header>
 
-
 <section class="product-section">
   <div class="product-box">
-    DESCRIPTION<br>ABOUT<br>LLGE
+    <h3>About Us</h3>
+    <h1>LLGE — Local Leather Good Exposura</h1>
+    <p><strong>LLGE</strong> is a proudly Filipino brand dedicated to showcasing the craftsmanship and artistry of locally made leather goods. Established with a passion for quality and authenticity, LLGE creates premium leather bags that blend timeless design with modern Filipino style.</p>
+    <p>Each piece is carefully handcrafted by skilled local artisans using sustainably sourced materials, ensuring durability, elegance, and character in every stitch. From everyday carry essentials to statement fashion pieces, LLGE represents more than just leather — it’s a movement to elevate local talent and celebrate the rich heritage of Filipino craftsmanship.</p>
+    <p style="font-style: italic; font-weight: 600; color: #7a5c3e;">At LLGE, we believe in “carrying culture with class.”</p>
   </div>
 
   <div class="slider">
@@ -322,17 +395,42 @@ nav a.active button {
   <div class="brand-box"><img src="logo4.png" alt="Brand 4"></div>
 </section>
 
+<!-- NEWS SECTION -->
 <section class="news">
-  <h2>NEWS</h2>
+  <h2>LLGE News & Features</h2>
   <div class="news-items">
-    <div class="news-box"></div>
-    <div class="news-box"></div>
-    <div class="news-box"></div>
+    <div class="news-box">
+      <img src="news1.png" alt="LLGE Opens Flagship Store">
+      <div class="news-content">
+        <h3>LLGE Opens First Flagship Store in Manila</h3>
+        <p>Experience craftsmanship up close — LLGE launches its first boutique featuring 100% locally made leather pieces.</p>
+        <a href="#">Read More →</a>
+      </div>
+    </div>
+
+    <div class="news-box">
+      <img src="news2.png" alt="Collaboration Announcement">
+      <div class="news-content">
+        <h3>LLGE Collaborates with Local Artists</h3>
+        <p>Bringing culture and creativity together, LLGE teams up with young Filipino artists for a new limited edition line.</p>
+        <a href="#">Read More →</a>
+      </div>
+    </div>
+
+    <div class="news-box">
+      <img src="news3.png" alt="Sustainability Project">
+      <div class="news-content">
+        <h3>LLGE Pushes for Sustainable Leather</h3>
+        <p>In support of green initiatives, LLGE introduces eco-tanned leather using locally sourced plant-based dyes.</p>
+        <a href="#">Read More →</a>
+      </div>
+    </div>
   </div>
 </section>
 
+
 <footer>
-  CREDIT, CONTACTS
+  © 2025 LLGE — Local Leather Good Exposura | Carrying Culture with Class
 </footer>
 
 <script>
