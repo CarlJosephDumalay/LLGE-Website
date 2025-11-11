@@ -40,11 +40,11 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 1000;
   }
 
   .logo img {
-    height: 150px;
+    height: 130px;
     width: auto;
     transition: transform 0.3s ease, filter 0.3s ease;
     filter: grayscale(100%) brightness(0.7);
@@ -58,6 +58,7 @@
   nav {
     display: flex;
     gap: 2rem;
+    transition: right 0.4s ease;
   }
 
   nav a {
@@ -86,6 +87,16 @@
   nav a.active button {
     background-color: var(--accent);
     color: var(--white);
+  }
+
+  /* Mobile menu button */
+  .menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--accent);
   }
 
   /* SECTION 1: GOOGLE FORM */
@@ -196,11 +207,58 @@
     margin-top: 3rem;
   }
 
+  /* RESPONSIVE */
   @media (max-width: 992px) {
+    header {
+      padding: 1rem 6%;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      right: -70%;
+      width: 70%;
+      height: 100vh;
+      background-color: var(--white);
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      transition: right 0.4s ease;
+      z-index: 999;
+    }
+
+    nav.open {
+      right: 0;
+    }
+
+    .menu-toggle {
+      display: block;
+      z-index: 1001;
+    }
+
+    .form-section {
+      padding: 4rem 5%;
+    }
+
+    .form-box {
+      height: 500px;
+    }
+
     .contact-section {
       flex-direction: column;
       align-items: center;
+      padding: 4rem 5%;
+      gap: 2rem;
     }
+
+    .contact-card,
+    .map-box {
+      width: 100%;
+      max-width: none;
+    }
+
     .map-box {
       height: 300px;
     }
@@ -213,7 +271,10 @@
   <div class="logo">
     <img src="logo.png" alt="LLGE Logo">
   </div>
-  <nav>
+
+  <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+
+  <nav id="navMenu">
     <a href="index.html"><button>ABOUT</button></a>
     <a href="contact.html" class="active"><button>CONTACT</button></a>
   </nav>
@@ -222,14 +283,12 @@
 <!-- SECTION 1: GOOGLE FORM -->
 <section class="form-section">
   <div class="form-box">
-    <!-- Replace this with your actual Google Form embed link -->
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdq0YZt91Vx_bb_3yTXnoCH5b7sDjK9MogY4bQcjUQhgKVocQ/viewform?embedded=true" width="640" height="855" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdq0YZt91Vx_bb_3yTXnoCH5b7sDjK9MogY4bQcjUQhgKVocQ/viewform?embedded=true">Loading…</iframe>
   </div>
 </section>
 
 <!-- SECTION 2: CONTACT + MAP -->
 <section class="contact-section">
-
   <div class="contact-card">
     <h1>Contact Details</h1>
     <p><strong>Address:</strong> 123 Creative Street, BFRC City</p>
@@ -245,17 +304,27 @@
   </div>
 
   <div class="map-box">
-    <!-- Replace this link with your actual Google Maps embed -->
     <iframe 
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3854.0920845982943!2d121.02240927468905!3d14.550992685941078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c93a94b6573b%3A0x9c278dbb8b6cf71!2sBF%20Resort%20Village%2C%20Las%20Pi%C3%B1as%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1699285478990!5m2!1sen!2sph"
       allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
-
 </section>
 
 <footer>
   © 2025 LLGE — Local Leather Good Exposura | Carrying Culture with Class
 </footer>
+
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
+
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
+    menuToggle.innerHTML = navMenu.classList.contains("open")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-bars"></i>';
+  });
+</script>
 
 </body>
 </html>

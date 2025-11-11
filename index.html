@@ -15,13 +15,12 @@
     --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     --gradient: linear-gradient(135deg, #fafafa, #eaeaea);
     --highlight: linear-gradient(90deg, #8b5e3c, #d4b093);
-    --leather: #8b5e3c;
   }
 
   * { box-sizing: border-box; }
 
   body {
-    font-family: "Poppins", "Helvetica Neue", sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0;
     background-color: var(--bg);
     color: var(--text);
@@ -33,19 +32,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 10%;
+    padding: 1rem 8%;
     background-color: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
   }
 
   .logo img {
-    height: 150px;
+    height: 120px;
     width: auto;
-    transition: transform 0.3s ease, filter 0.3s ease;
     filter: grayscale(100%) brightness(0.7);
+    transition: all 0.3s ease;
   }
 
   .logo img:hover {
@@ -53,9 +52,12 @@
     filter: grayscale(0%) brightness(1);
   }
 
+  /* NAVIGATION */
   nav {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
+    align-items: center;
+    transition: transform 0.4s ease;
   }
 
   nav a { text-decoration: none; }
@@ -64,9 +66,8 @@
     background: none;
     border: 2px solid var(--accent);
     border-radius: 30px;
-    padding: 0.6rem 1.6rem;
+    padding: 0.6rem 1.4rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
     color: var(--accent);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -75,8 +76,7 @@
   nav button:hover {
     background-color: var(--accent);
     color: var(--white);
-    transform: scale(1.08);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
   }
 
   nav a.active button {
@@ -84,50 +84,33 @@
     color: var(--white);
   }
 
+  /* HAMBURGER MENU */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--accent);
+  }
+
   /* PRODUCT SECTION */
   .product-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 6rem 8%;
+    padding: 5rem 8%;
     background: radial-gradient(circle at top left, #fdfcfb, #f6f2ed);
-    background-image: url('https://www.transparenttextures.com/patterns/leather.png');
-    background-blend-mode: multiply;
     flex-wrap: wrap;
-    gap: 3rem;
-    min-height: 80vh;
-    animation: fadeInBg 10s ease-in-out infinite alternate;
+    gap: 2.5rem;
   }
 
-  @keyframes fadeInBg {
-    0% { background-position: left top; }
-    100% { background-position: right bottom; }
-  }
-
-  /* DESCRIPTION BOX */
   .product-box {
     flex: 1 1 45%;
-    padding: 3rem;
+    padding: 2.5rem;
     border-radius: 18px;
     background: var(--white);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    text-align: left;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    animation: fadeIn 1.5s ease forwards;
-  }
-
-  .product-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  }
-
-  .product-box h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 0.5rem;
-    color: #7c6a55;
+    box-shadow: var(--shadow);
   }
 
   .product-box h1 {
@@ -135,37 +118,34 @@
     background: var(--highlight);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: 800;
-    margin-bottom: 1rem;
   }
 
   .product-box p {
-    font-size: 1rem;
     line-height: 1.8;
-    color: #333;
     margin-bottom: 1rem;
   }
 
   /* SLIDER */
   .slider {
-    width: 520px;
-    height: 520px;
+    width: 480px;
+    height: 480px;
     border-radius: 18px;
     overflow: hidden;
     position: relative;
-    background-color: var(--white);
-    border: 2px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-    animation: pulseGlow 6s infinite alternate;
+    background: var(--white);
+    box-shadow: var(--shadow);
     flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .slider img {
-    position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     opacity: 0;
+    position: absolute;
     transition: opacity 1s ease-in-out;
   }
 
@@ -178,13 +158,12 @@
     background: rgba(255,255,255,0.85);
     border: none;
     border-radius: 50%;
-    width: 55px;
-    height: 55px;
-    font-size: 26px;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
     color: var(--accent);
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 
   .slider button:hover {
@@ -192,25 +171,15 @@
     transform: translateY(-50%) scale(1.15);
   }
 
-  .prev { left: 20px; }
-  .next { right: 20px; }
+  .prev { left: 15px; }
+  .next { right: 15px; }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes pulseGlow {
-    0% { box-shadow: 0 0 30px rgba(0,0,0,0.1), 0 0 10px rgba(255,255,255,0.3); }
-    100% { box-shadow: 0 0 50px rgba(0,0,0,0.25), 0 0 25px rgba(255,255,255,0.5); }
-  }
-
-  /* BRANDS SECTION */
+  /* BRANDS */
   .brands {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2.5rem;
-    padding: 4rem 10%;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    padding: 4rem 8%;
     background: #faf8f6;
   }
 
@@ -219,24 +188,18 @@
     border: 1px solid var(--border);
     border-radius: 14px;
     box-shadow: var(--shadow);
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
+    padding: 1rem;
   }
 
   .brand-box img {
     width: 100%;
+    max-width: 140px;
     object-fit: contain;
-    transition: all 0.4s ease;
     filter: grayscale(100%) brightness(0.9);
-  }
-
-  .brand-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: all 0.4s ease;
   }
 
   .brand-box:hover img {
@@ -244,113 +207,92 @@
     transform: scale(1.05);
   }
 
-/* NEWS SECTION */
-.news {
-  padding: 6rem 10%;
-  background: var(--gradient);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
+  /* NEWS */
+  .news {
+    padding: 5rem 8%;
+    background: var(--gradient);
+    text-align: center;
+  }
 
-.news h2 {
-  font-size: 2rem;
-  margin-bottom: 3rem;
-  font-weight: 700;
-  background: var(--highlight);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 1px;
-}
+  .news h2 {
+    font-size: 1.8rem;
+    background: var(--highlight);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 3rem;
+  }
 
-.news-items {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-  justify-items: center;
-}
+  .news-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+  }
 
-.news-box {
-  position: relative;
-  width: 100%;
-  max-width: 360px;
-  background: var(--white);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transition: all 0.4s ease;
-}
+  .news-box {
+    background: var(--white);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 360px;
+  }
 
-.news-box:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
+  .news-box img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
 
-.news-box img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  transition: all 0.4s ease;
-}
-
-.news-box:hover img {
-  filter: brightness(0.8);
-}
-
-.news-content {
-  padding: 1.5rem;
-  text-align: left;
-}
-
-.news-content h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--accent);
-}
-
-.news-content p {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 0.8rem;
-}
-
-.news-content a {
-  font-weight: 600;
-  text-decoration: none;
-  color: #7a5c3e;
-  transition: color 0.3s ease;
-}
-
-.news-content a:hover {
-  color: #b67b4b;
-}
-
+  .news-content {
+    padding: 1.3rem;
+    text-align: left;
+  }
 
   footer {
     text-align: center;
     padding: 2rem;
-    border-top: 1px solid var(--border);
-    font-weight: 600;
     background-color: var(--white);
-    letter-spacing: 0.5px;
+    border-top: 1px solid var(--border);
   }
 
-  @media (max-width: 992px) {
-    .product-section {
-      flex-direction: column;
-      text-align: center;
+  /* MOBILE MENU SLIDE-IN */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
     }
 
-    .product-box, .slider {
-      flex: none;
-      width: 90%;
+    nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 70%;
+      background: var(--white);
+      box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(100%);
+      z-index: 200;
+    }
+
+    nav.open {
+      transform: translateX(0);
+    }
+
+    nav a {
+      margin: 1rem 0;
+    }
+
+    .product-section {
+      flex-direction: column;
     }
 
     .slider {
-      height: auto;
-      aspect-ratio: 1 / 1;
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
     }
   }
 </style>
@@ -361,7 +303,10 @@
   <div class="logo">
     <img src="logo.png" alt="LLGE Logo">
   </div>
-  <nav>
+
+  <button class="menu-toggle" id="menuToggle">☰</button>
+
+  <nav id="navMenu">
     <a href="main.html" class="active"><button>ABOUT</button></a>
     <a href="contact.html"><button>CONTACT</button></a>
   </nav>
@@ -371,8 +316,8 @@
   <div class="product-box">
     <h3>About Us</h3>
     <h1>LLGE — Local Leather Good Exposura</h1>
-    <p><strong>LLGE</strong> is a proudly Filipino brand dedicated to showcasing the craftsmanship and artistry of locally made leather goods. Established with a passion for quality and authenticity, LLGE creates premium leather bags that blend timeless design with modern Filipino style.</p>
-    <p>Each piece is carefully handcrafted by skilled local artisans using sustainably sourced materials, ensuring durability, elegance, and character in every stitch. From everyday carry essentials to statement fashion pieces, LLGE represents more than just leather — it’s a movement to elevate local talent and celebrate the rich heritage of Filipino craftsmanship.</p>
+    <p><strong>LLGE</strong> is a proudly Filipino brand dedicated to showcasing the craftsmanship and artistry of locally made leather goods.</p>
+    <p>Each piece is handcrafted by skilled artisans using sustainably sourced materials, ensuring durability and elegance in every stitch.</p>
     <p style="font-style: italic; font-weight: 600; color: #7a5c3e;">At LLGE, we believe in “carrying culture with class.”</p>
   </div>
 
@@ -381,8 +326,6 @@
     <img src="2.png" alt="Product 2">
     <img src="3.png" alt="Product 3">
     <img src="4.png" alt="Product 4">
-    <img src="5.png" alt="Product 5">
-    <img src="6.png" alt="Product 6">
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
   </div>
@@ -395,7 +338,6 @@
   <div class="brand-box"><img src="logo4.png" alt="Brand 4"></div>
 </section>
 
-<!-- NEWS SECTION -->
 <section class="news">
   <h2>LLGE News & Features</h2>
   <div class="news-items">
@@ -403,7 +345,7 @@
       <img src="news1.png" alt="LLGE Opens Flagship Store">
       <div class="news-content">
         <h3>LLGE Opens First Flagship Store in Manila</h3>
-        <p>Experience craftsmanship up close — LLGE launches its first boutique featuring 100% locally made leather pieces.</p>
+        <p>Experience craftsmanship up close in LLGE’s first boutique featuring 100% locally made leather pieces.</p>
         <a href="#">Read More →</a>
       </div>
     </div>
@@ -412,7 +354,7 @@
       <img src="news2.png" alt="Collaboration Announcement">
       <div class="news-content">
         <h3>LLGE Collaborates with Local Artists</h3>
-        <p>Bringing culture and creativity together, LLGE teams up with young Filipino artists for a new limited edition line.</p>
+        <p>Bringing creativity and culture together through a new limited edition collection.</p>
         <a href="#">Read More →</a>
       </div>
     </div>
@@ -421,19 +363,19 @@
       <img src="news3.png" alt="Sustainability Project">
       <div class="news-content">
         <h3>LLGE Pushes for Sustainable Leather</h3>
-        <p>In support of green initiatives, LLGE introduces eco-tanned leather using locally sourced plant-based dyes.</p>
+        <p>Introducing eco-tanned leather using locally sourced plant-based dyes.</p>
         <a href="#">Read More →</a>
       </div>
     </div>
   </div>
 </section>
 
-
 <footer>
   © 2025 LLGE — Local Leather Good Exposura | Carrying Culture with Class
 </footer>
 
 <script>
+  // Slider
   const slides = document.querySelectorAll('.slider img');
   const nextBtn = document.querySelector('.next');
   const prevBtn = document.querySelector('.prev');
@@ -465,7 +407,7 @@
   });
 
   function startAutoSlide() {
-    interval = setInterval(nextSlide, 10000);
+    interval = setInterval(nextSlide, 8000);
   }
 
   function resetAutoSlide() {
@@ -474,6 +416,15 @@
   }
 
   startAutoSlide();
+
+  // Hamburger Menu
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
+
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+    menuToggle.textContent = navMenu.classList.contains('open') ? '✖' : '☰';
+  });
 </script>
 
 </body>
