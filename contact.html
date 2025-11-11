@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Modern Product Showcase</title>
+<title>Contact | LLGE — Local Leather Good Exposura</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <style>
@@ -31,78 +31,98 @@
   }
 
   /* HEADER */
- /* HEADER */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 10%;
-  background-color: var(--white);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10%;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
 
-/* LOGO */
-.logo img {
-  height: 150px;
-  width: auto;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: grayscale(100%) brightness(0.7);
-}
+  .logo img {
+    height: 150px;
+    width: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%) brightness(0.7);
+  }
 
-.logo img:hover {
-  transform: scale(1.08);
-  filter: grayscale(0%) brightness(1);
-}
+  .logo img:hover {
+    transform: scale(1.08);
+    filter: grayscale(0%) brightness(1);
+  }
 
-/* NAV BUTTONS */
-nav {
-  display: flex;
-  gap: 2rem;
-}
+  nav {
+    display: flex;
+    gap: 2rem;
+  }
 
-nav a {
-  text-decoration: none;
-}
+  nav a {
+    text-decoration: none;
+  }
 
-nav button {
-  background: none;
-  border: 2px solid var(--accent);
-  border-radius: 30px;
-  padding: 0.6rem 1.6rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: var(--accent);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+  nav button {
+    background: none;
+    border: 2px solid var(--accent);
+    border-radius: 30px;
+    padding: 0.6rem 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
 
-nav button:hover {
-  background-color: var(--accent);
-  color: var(--white);
-  transform: scale(1.08);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
+  nav button:hover {
+    background-color: var(--accent);
+    color: var(--white);
+    transform: scale(1.08);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
 
-/* ACTIVE BUTTON STYLE */
-nav a.active button {
-  background-color: var(--accent);
-  color: var(--white);
-}
+  nav a.active button {
+    background-color: var(--accent);
+    color: var(--white);
+  }
 
-
-  /* CONTACT SECTION */
-  .contact-section {
+  /* SECTION 1: GOOGLE FORM */
+  .form-section {
+    padding: 6rem 10%;
+    background: radial-gradient(circle at top left, #ffffff, #f2efea);
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .form-box {
+    width: 100%;
+    max-width: 900px;
+    background: var(--white);
+    border-radius: 18px;
+    border: 1.5px solid var(--border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    height: 650px;
+  }
+
+  .form-box iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* SECTION 2: CONTACT DETAILS + MAP */
+  .contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     gap: 4rem;
     flex-wrap: wrap;
     padding: 6rem 10%;
-    background: radial-gradient(circle at top left, #ffffff, #f2efea);
-    position: relative;
+    background: radial-gradient(circle at top left, #ffffff, #f6f5f2);
   }
 
   .contact-card {
@@ -158,21 +178,13 @@ nav a.active button {
     background-color: var(--white);
     border: 1.5px solid var(--border);
     box-shadow: var(--shadow);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    color: var(--accent);
-    font-size: 1.4rem;
-    background: var(--gradient);
-    animation: pulseGlow 6s infinite alternate;
   }
 
-  @keyframes pulseGlow {
-    0% { box-shadow: 0 0 30px rgba(0,0,0,0.1), 0 0 10px rgba(255,255,255,0.3); }
-    100% { box-shadow: 0 0 50px rgba(0,0,0,0.25), 0 0 25px rgba(255,255,255,0.5); }
+  .map-box iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
   }
-
 
   footer {
     text-align: center;
@@ -182,6 +194,16 @@ nav a.active button {
     background-color: var(--white);
     letter-spacing: 0.5px;
     margin-top: 3rem;
+  }
+
+  @media (max-width: 992px) {
+    .contact-section {
+      flex-direction: column;
+      align-items: center;
+    }
+    .map-box {
+      height: 300px;
+    }
   }
 </style>
 </head>
@@ -197,16 +219,21 @@ nav a.active button {
   </nav>
 </header>
 
-
-<section class="contact-section">
-  <div class="map-box">
-    MAP / LOCATION
+<!-- SECTION 1: GOOGLE FORM -->
+<section class="form-section">
+  <div class="form-box">
+    <!-- Replace this with your actual Google Form embed link -->
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdq0YZt91Vx_bb_3yTXnoCH5b7sDjK9MogY4bQcjUQhgKVocQ/viewform?embedded=true" width="640" height="855" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </div>
+</section>
+
+<!-- SECTION 2: CONTACT + MAP -->
+<section class="contact-section">
 
   <div class="contact-card">
     <h1>Contact Details</h1>
     <p><strong>Address:</strong> 123 Creative Street, BFRC City</p>
-    <p><strong>Email:</strong> hello@yourbrand.com</p>
+    <p><strong>Email:</strong> hello@llge.ph</p>
     <p><strong>Phone:</strong> +63 900 123 4567</p>
 
     <div class="socials">
@@ -216,10 +243,18 @@ nav a.active button {
       <a href="#"><i class="fab fa-x-twitter"></i></a>
     </div>
   </div>
+
+  <div class="map-box">
+    <!-- Replace this link with your actual Google Maps embed -->
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3854.0920845982943!2d121.02240927468905!3d14.550992685941078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c93a94b6573b%3A0x9c278dbb8b6cf71!2sBF%20Resort%20Village%2C%20Las%20Pi%C3%B1as%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1699285478990!5m2!1sen!2sph"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
 </section>
 
 <footer>
-  © 2025 Your Brand. All Rights Reserved.
+  © 2025 LLGE — Local Leather Good Exposura | Carrying Culture with Class
 </footer>
 
 </body>
